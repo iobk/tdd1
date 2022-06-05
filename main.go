@@ -46,6 +46,8 @@ func calculate(op string, a, b int) int {
 		return a + b
 	} else if op == "-" {
 		return a - b
+	} else if op == "*" {
+		return a * b
 	}
 	return 0
 }

@@ -104,10 +104,41 @@ func Test2() {
 	}
 }
 func Test3() {
-
+	if !testCalculate2("test1", "+", 1, 1, 2) {
+		return
+	}
+	if !testCalculate2("test2", "+", 5, 1, 6) {
+		return
+	}
+	if !testCalculate2("test3", "+", 5, -1, 4) {
+		return
+	}
+	if !testCalculate2("test4", "-", 5, 1, 4) {
+		return
+	}
+	if !testCalculate2("test5", "-", 5, 5, 0) {
+		return
+	}
+	if !testCalculate2("test6", "*", 5, 5, 25) {
+		return
+	}
+	if !testCalculate2("test7", "*", 5, -5, -25) {
+		return
+	}
+	if !testCalculate2("test8", "/", 5, 5, 1) {
+		return
+	}
 }
 func testCalculate(testcase, op string, a, b, expected int) bool {
 	o := Calculate(op, a, b)
+	if o != expected {
+		fmt.Printf("%s Failed! expected : %d output: %d \n", testcase, expected, o)
+		return false
+	}
+	return true
+}
+func testCalculate2(testcase, op string, a, b, expected int) bool {
+	o := Calculate2(op, a, b)
 	if o != expected {
 		fmt.Printf("%s Failed! expected : %d output: %d \n", testcase, expected, o)
 		return false

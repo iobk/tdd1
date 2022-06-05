@@ -29,7 +29,16 @@ func Test() {
 		fmt.Printf("Test Failed ! expected %d output : %d \n", 4, o)
 		return
 	}
-
+	o = calculate("-", 5, 5)
+	if o != 0 {
+		fmt.Printf("Test Failed ! expected %d output : %d \n", 0, o)
+		return
+	}
+	o = calculate("*", 5, 5)
+	if o != 25 {
+		fmt.Printf("Test Failed ! expected %d output : %d \n", 25, o)
+		return
+	}
 	fmt.Println("Test success!")
 }
 func calculate(op string, a, b int) int {

@@ -33,5 +33,10 @@ func Test() {
 	fmt.Println("Test success!")
 }
 func calculate(op string, a, b int) int {
-	return a + b
+	if op == "+" {
+		return a + b
+	} else if op == "-" {
+		return a - b
+	}
+	return 0
 }

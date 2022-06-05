@@ -4,10 +4,35 @@ import (
 	"fmt"
 )
 
+var opMap map[string]func(int, int) int
+
+func initOpMap() {
+	opMap = make(map[string]func(int, int) int)
+	opMap["+"] = add
+	opMap["-"] = sub
+	opMap["*"] = mul
+	opMap["/"] = div
+
+}
+func add(a, b int) int {
+	return a + b
+}
+func sub(a, b int) int {
+	return a - b
+}
+func mul(a, b int) int {
+	return a * b
+}
+func div(a, b int) int {
+	return a / b
+}
+
 func main() {
 	fmt.Println("Test driven development")
+	initOpMap()
 	Test()
 	Test2()
+	Test3()
 }
 func Test() {
 	o := calculate("+", 1, 1)
@@ -78,6 +103,9 @@ func Test2() {
 		return
 	}
 }
+func Test3() {
+
+}
 func testCalculate(testcase, op string, a, b, expected int) bool {
 	o := Calculate(op, a, b)
 	if o != expected {
@@ -110,4 +138,11 @@ func Calculate(op string, a, b int) int {
 		res = a / b
 	}
 	return res
+}
+func Calculate2(op string, a, b int) int {
+	if v, ok := opMap[op]; ok {
+		return v(a, b)
+	}
+	return 0
+
 }

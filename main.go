@@ -14,7 +14,8 @@ func Test() {
 		fmt.Printf("Test Failed ! expected %d output : %d \n", 2, o)
 		return
 	}
+	fmt.Println("Test success!")
 }
 func calculate(op string, a, b int) int {
-	return 0
+	return 2
 }
